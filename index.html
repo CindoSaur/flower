@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gửi Hà — 20/10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Be+Vietnam+Pro:wght@400;500&display=swap&subset=vietnamese" rel="stylesheet">
   <style>
     :root { --rose:#b85d78; --deep:#69384e; --cream:#fffaf6; --ink:#533b43; }
     * { box-sizing: border-box; }
     body {
       margin:0; min-height:100vh; display:grid; place-items:center; padding:24px;
-      color:var(--ink); font-family: Georgia, "Times New Roman", serif;
+      color:var(--ink); font-family: "Lora", Georgia, "Times New Roman", serif;
       background:
         radial-gradient(circle at 15% 20%, #fff7f0 0 8%, transparent 28%),
         radial-gradient(circle at 85% 80%, #f7dce4 0 0, transparent 32%),
@@ -27,17 +30,17 @@
     }
     .card:before,.card:after { content:""; position:absolute; width:150px;height:150px;border:1px solid #e8bac8;border-radius:50%;opacity:.45; }
     .card:before { top:-90px;left:-75px; } .card:after { right:-80px;bottom:-95px; }
-    .eyebrow { text-transform:uppercase; letter-spacing:.25em; font:11px/1.6 Arial,sans-serif; color:var(--rose); }
+    .eyebrow { text-transform:uppercase; letter-spacing:.25em; font:11px/1.6 'Be Vietnam Pro',Arial,sans-serif; color:var(--rose); }
     h1 { margin:14px 0 12px; font-size:clamp(30px,7vw,48px); font-weight:normal; color:var(--deep); }
     .flower { font-size:34px; margin:16px 0; filter:drop-shadow(0 5px 8px #e7c4ce); }
     p { font-size:17px; line-height:1.8; margin:12px auto; max-width:480px; }
     .buttons { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:28px; }
     a { text-decoration:none; }
-    .btn { display:inline-block; border-radius:999px; padding:13px 22px; font:14px Arial,sans-serif; transition:.2s; }
+    .btn { display:inline-block; border-radius:999px; padding:13px 22px; font:14px 'Be Vietnam Pro',Arial,sans-serif; transition:.2s; }
     .primary { color:white; background:linear-gradient(135deg,#c66f8a,#9c4d68); box-shadow:0 8px 20px #d8a3b2; }
     .secondary { color:var(--deep); border:1px solid #d9a3b3; background:#fffaf8; }
     .btn:hover { transform:translateY(-2px); }
-    .foot { margin-top:20px; text-align:center; font:12px Arial,sans-serif; color:#966d7c; letter-spacing:.04em; }
+    .foot { margin-top:20px; text-align:center; font:12px 'Be Vietnam Pro',Arial,sans-serif; color:#966d7c; letter-spacing:.04em; }
     @media(max-width:420px) { p{font-size:16px}.btn{width:100%} }
   </style>
 </head>

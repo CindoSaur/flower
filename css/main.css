@@ -1346,3 +1346,72 @@ body {
 .flower--5 { left: 62%; transform: rotate(25deg) scale(.68); animation: moving-flower-2 4.3s linear infinite; }
 .flower--6 { left: 42%; transform: rotate(-8deg) scale(.48); animation: moving-flower-3 4.8s linear infinite; }
 .flower--4 .flower__line, .flower--5 .flower__line, .flower--6 .flower__line { height: 43vmin; }
+
+
+/* Vườn hoa nhiều màu: thêm các cụm hoa ở hậu cảnh */
+.flowers { transform: scale(1); width: 100%; }
+.extra-flower { z-index: 8; filter: hue-rotate(var(--hue, 0deg)) saturate(1.15); opacity: .96; }
+.extra-1 { left: 18%; transform: scale(.58) rotate(-13deg); --hue: 280deg; bottom: 5vmin; }
+.extra-2 { left: 30%; transform: scale(.72) rotate(9deg); --hue: 45deg; bottom: 2vmin; }
+.extra-3 { left: 42%; transform: scale(.55) rotate(-8deg); --hue: 150deg; bottom: 1vmin; }
+.extra-4 { left: 58%; transform: scale(.68) rotate(12deg); --hue: 320deg; bottom: 3vmin; }
+.extra-5 { left: 72%; transform: scale(.60) rotate(-10deg); --hue: 195deg; bottom: 2vmin; }
+/* Thêm ánh sáng màu dịu quanh vườn hoa */
+.night { background-color: #05070c; }
+
+
+/* Layout fix: center the garden and keep the flower cluster visually connected */
+html, body.container {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+body.container {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.flowers {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(100vw, 1100px);
+  height: 100vh;
+  transform: translateX(-50%) scale(.92);
+  transform-origin: bottom center;
+}
+/* Explicitly place each bloom so none drifts away from the middle */
+.flowers > .flower--1 { left: 39%; bottom: 8vmin; transform: rotate(-7deg) scale(.82); }
+.flowers > .flower--2 { left: 48%; bottom: 7vmin; transform: rotate(14deg) scale(.78); }
+.flowers > .flower--3 { left: 56%; bottom: 8vmin; transform: rotate(-14deg) scale(.72); }
+.flowers > .flower--4 { left: 29%; bottom: 4vmin; transform: rotate(-25deg) scale(.66); }
+.flowers > .flower--5 { left: 64%; bottom: 3vmin; transform: rotate(23deg) scale(.68); }
+.flowers > .flower--6 { left: 43%; bottom: 2vmin; transform: rotate(-5deg) scale(.58); }
+.flowers > .extra-1 { left: 20%; bottom: 1vmin; transform: rotate(-13deg) scale(.62); }
+.flowers > .extra-2 { left: 32%; bottom: 0; transform: rotate(9deg) scale(.70); }
+.flowers > .extra-3 { left: 40%; bottom: 0; transform: rotate(-8deg) scale(.58); }
+.flowers > .extra-4 { left: 58%; bottom: 0; transform: rotate(12deg) scale(.66); }
+.flowers > .extra-5 { left: 70%; bottom: 1vmin; transform: rotate(-10deg) scale(.58); }
+@media (max-width: 700px) {
+  .flowers { width: 150vw; transform: translateX(-50%) scale(.82); }
+}
+
+
+/* More grass: fuller foreground around the centered flowers */
+.flower__grass { transform: scale(1.18); transform-origin: bottom center; }
+.growing-grass { transform: scale(1.12); transform-origin: bottom center; }
+.flower__grass__leaf { filter: brightness(1.08); }
+@media (min-width: 700px) { .growing-grass { margin-inline: -2vmin; } }
+
+/* Fix: grass offsets were designed around the screen centre, but .flowers is now a
+   wide box (left edge = x:0). Shift the grass to the middle of .flowers so it
+   lines up with the blooms again. */
+.flower__grass,
+.long-g {
+  /* 50% = tâm khung hoa; +20vmin = dịch thêm sang phải cho cỏ cân với hoa.
+     Cỏ vẫn lệch trái -> tăng số vmin, lệch phải -> giảm. */
+  margin-left: calc(50% + 32vmin);
+}
